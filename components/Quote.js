@@ -24,13 +24,12 @@ export default function Quote() {
         <div className={styles.container}>
           <div className={styles.quote_container}>
             <div className={styles.text_container}>
-              <p>“{quote}”</p>
+              <p>“{ ['.', '!', '?'].includes(quote[quote.length - 1]) ? quote : quote + '.' }”</p>
               <br />
               <small>- Kanye West</small>
             </div>
             <div className={styles.image_container}>
               <Image
-                download
                 src={image}
                 layout="fill"
                 objectFit="cover"
