@@ -1,17 +1,17 @@
-import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Quote.module.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import { QuoteContext } from "./QuoteProvider";
 
 export default function Quote() {
   const [loading, setLoading] = useState(false);
-  const [quote, setQuote] = useState(null);
+  const [quote, setQuote] = useContext(QuoteContext);
 
   useEffect(async () => {
     setLoading(true);
-    const res = await axios.get('https://api.kanye.rest/')
-    setQuote(res.data.quote)
+    const res = await axios.get("https://api.kanye.rest/");
+    setQuote(res.data.quote);
     setLoading(false);
   }, []);
 
