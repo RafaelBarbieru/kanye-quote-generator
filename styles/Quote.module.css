@@ -21,7 +21,7 @@
 .text_container {
   margin-left: 2em;
   margin-right: 2em;
-  font-size: 2vw;
+  font-size: 3vw;
   text-align: left;
   width: 50%;
   color: #eeeeee;
@@ -42,12 +42,17 @@
   user-select: none;
 }
 
-.image_container::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  box-shadow: inset 0px 0px 200px 100px black;
+@media only screen and (min-width: 1500px) {
+  .text_container {
+    font-size: 2vw;
+  }
+  .image_container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    box-shadow: inset 0px 0px 100px 100px black;
+  }
 }
