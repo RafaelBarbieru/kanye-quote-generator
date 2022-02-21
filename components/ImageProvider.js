@@ -9,9 +9,14 @@ export default function ImageProvider({ children }) {
   return <ImageContext.Provider value={[image, setImage]}>{children}</ImageContext.Provider>;
 }
 
-export function pickRandomImage() {
-  const randomNumber = Math.floor(Math.random() * 2);
-  const imageName = "/kanye" + randomNumber + ".jpeg";
+export async function pickRandomImage(image) {
+  console.log(image);  
+  let randomNumber = 0;
+  let imageName = ''
+  do {
+    randomNumber = Math.floor(Math.random() * 3);
+    imageName = "/kanye" + randomNumber + ".jpg";
+  } while (imageName === image)
   console.log(imageName)
   return imageName;
 }

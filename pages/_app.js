@@ -7,12 +7,7 @@ config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatic
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <Head>
-        <script
-          src="https://kit.fontawesome.com/71c3dd7f5a.js"
-          crossorigin="anonymous"
-        ></script>
-      </Head>
+      <Head></Head>
       <Component {...pageProps} />
     </>
   );

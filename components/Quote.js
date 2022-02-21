@@ -12,9 +12,9 @@ export default function Quote() {
   useEffect(async () => {
     setLoading(true);
     const quote = await getQuote();
-    const image = pickRandomImage();
+    const imageName = await pickRandomImage(image);
     setQuote(quote);
-    setImage(image);
+    setImage(imageName);
     setLoading(false);
   }, []);
 
