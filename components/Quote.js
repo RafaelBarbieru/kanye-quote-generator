@@ -9,13 +9,16 @@ export default function Quote() {
   const [quote, setQuote] = useContext(QuoteContext);
   const [image, setImage] = useContext(ImageContext);
 
-  useEffect(async () => {
-    setLoading(true);
-    const quote = await getQuote();
-    const imageName = await pickRandomImage(image);
-    setQuote(quote);
-    setImage(imageName);
-    setLoading(false);
+  useEffect(() => {
+    async function fetchQuote() {
+      setLoading(true);
+      const quote = await getQuote();
+      const imageName = await pickRandomImage(image);
+      setQuote(quote);
+      setImage(imageName);
+      setLoading(false);
+    }
+    fetchQuote();
   }, []);
 
   if (!loading) {
@@ -24,7 +27,13 @@ export default function Quote() {
         <div className={styles.container}>
           <div className={styles.quote_container}>
             <div className={styles.text_container}>
-              <p>“{ ['.', '!', '?'].includes(quote[quote.length - 1]) ? quote : quote + '.' }”</p>
+              <p>
+                “
+                {[".", "!", "?"].includes(quote[quote.length - 1])
+                  ? quote
+                  : quote + "."}
+                ”
+              </p>
               <br />
               <small>- Kanye West</small>
             </div>
